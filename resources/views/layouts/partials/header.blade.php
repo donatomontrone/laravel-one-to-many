@@ -24,6 +24,9 @@
                     <li class="nav-item">
                         <a class="nav-link fw-bold {{ str_starts_with(Route::currentRouteName(), 'admin.projects') ? 'active' : '' }}" href="{{route('admin.projects.index')}}">{{ __('Projects') }}</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold {{ str_starts_with(Route::currentRouteName(), 'admin.types') ? 'active' : '' }}" href="{{route('admin.types.index')}}">{{ __('Types') }}</a>
+                    </li>
                 </ul>
                 @endguest
                 <!-- Right Side Of Navbar -->
