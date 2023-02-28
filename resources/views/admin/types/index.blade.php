@@ -42,7 +42,7 @@
                 <tr>
                   <th scope="row">{{$type->id}}</th>
                   <td>{{$type->name}}</td>
-                  <td>{{$type->color}}</td>
+                  <td>{{$type->color}} <div class="color-index d-inline-block" style="background-color:{{$type->color}}"></div></td>
                   <td class="text-center">
                     <a href="{{route('admin.types.show', $type->id)}}" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-eye"></i></a>
                     <a href="{{route('admin.types.edit', $type->id)}}" class="btn btn-outline-success btn-sm"><i class="fa-solid fa-edit"></i></a>
