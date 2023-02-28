@@ -39,8 +39,8 @@
                   <th scope="col">ID</th>
                   <th scope="col">Name</th>
                   <th scope="col">Publication Date</th>
-                  <th scope="col">Complexity</th>
-                  <th scope="col">Language Used</th>
+                  <th scope="col">Difficulty</th>
+                  <th scope="col">Type</th>
                   <th scope="col" class="text-center">Actions</th>
                 </tr>
               </thead>
@@ -52,10 +52,10 @@
                   <td>{{$project->publication_date}}</td>
                   <td class="text-secondary">
                     @for ($i = 0; $i < 5; $i++)
-                    <span class="fa-star {{($i < $project->complexity) ? 'fas' : 'far'}}"></span>
+                    <span class="fa-star {{($i < $project->difficulty->id) ? 'fas' : 'far'}}"></span>
                     @endfor
                   </td>
-                  <td>{{$project->language_used}}</td>
+                  <td>{{$project->type->name}}</td>
                   <td class="text-center">
                     <form  action="{{route('admin.restore', $project)}}" method="POST" class="d-inline" data-element-name="{{$project->name}}" >
                       @csrf
