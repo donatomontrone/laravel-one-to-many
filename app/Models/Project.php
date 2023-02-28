@@ -12,6 +12,12 @@ class Project extends Model
     use SoftDeletes;
 
     protected $fillable = ['name', 'slug', 'publication_date', 'preview', 'complexity', 'language_used', 'github_url'];
+
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
+    }
+
     /**
      * Get the route key for the model.
      */
