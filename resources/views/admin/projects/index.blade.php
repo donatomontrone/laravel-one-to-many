@@ -38,7 +38,7 @@
                   <th scope="col" >Name <a href="{{route('admin.projects.index', 'sort=name')}}" class="text-white d-inline-block"><i class="fa-solid fa-sort-down"></i></a></th>
                   <th scope="col">Publication Date <a href="{{route('admin.projects.index', 'sort=publication_date')}}" class="text-white d-inline-block"><i class="fa-solid fa-sort-down"></i></a></th>
                   <th scope="col">Complexity <a href="{{route('admin.projects.index', 'sort=complexity')}}" class="text-white d-inline-block"><i class="fa-solid fa-sort-down"></i></a></th>
-                  <th scope="col">Language Used <a href="{{route('admin.projects.index', 'sort=language_used')}}" class="text-white d-inline-block"><i class="fa-solid fa-sort-down"></i></a></th>
+                  <th scope="col">Type <a href="{{route('admin.projects.index', 'sort=type_id')}}" class="text-white d-inline-block"><i class="fa-solid fa-sort-down"></i></a></th>
                   <th scope="col" class="text-center">Actions</th>
                 </tr>
               </thead>
@@ -53,7 +53,7 @@
                     <span class="fa-star {{($i < $project->complexity) ? 'fas' : 'far'}}"></span>
                     @endfor
                   </td>
-                  <td>{{$project->language_used}}</td>
+                  <td>{{$project->type->name}}</td>
                   <td class="text-center">
                     <a href="{{route('admin.projects.show', $project->slug)}}" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-eye"></i></a>
                     <a href="{{route('admin.projects.edit', $project->slug)}}" class="btn btn-outline-success btn-sm"><i class="fa-solid fa-edit"></i></a>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
@@ -16,9 +17,9 @@ class ProjectController extends Controller
         'publication_date' => 'required',
         'preview' => 'required|image|min:1|max:300',
         'complexity' => 'required|min:1|max:5',
-        'language_used' => 'required|min:2|max:100|string',
         'github_url' => 'required|url|min:10',
-        'slug' => 'unique'
+        'slug' => 'unique',
+        'type_id' => 'required|exists:types,id'
     ];
 
     protected $messages = [
@@ -34,9 +35,6 @@ class ProjectController extends Controller
         'complexity.required' => 'Inserisci il livello di complessità.',
         'complexity.min' => 'Il numero deve essere compreso tra 1 e 5',
         'complexity.max' => 'Il numero deve essere compreso tra 1 e 5',
-        'language_used.required' => 'Inserisci il linguaggio di programmazione usato.',
-        'language_used.min' => 'Il linguaggio è troppo corto.',
-        'language_used.max' => 'Il linguaggio è troppo lungo.',
         'github_url.required' => 'Inserisci l\'url della repository GitHub.',
         'github_url.url' => 'Url non valido.',
     ];
@@ -70,7 +68,7 @@ class ProjectController extends Controller
     public function create(Project $project)
     {
 
-        return view('admin.projects.create', compact('project'));
+        return view('admin.projects.create', compact('project'), ['types' => Type::all()]);
     }
 
     /**
@@ -113,7 +111,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+        return view('admin.projects.edit', compact('project'), ['types' => Type::all()]);
     }
 
     /**

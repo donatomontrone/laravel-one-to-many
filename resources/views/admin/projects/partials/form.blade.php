@@ -70,16 +70,17 @@
                 </div>
             </div>
         </div>
-                        {{-- Language Used --}}
+                        {{-- Type --}}
             <div class="col-md">
                 <div class="form-floating">
-                    <input type="text" class="form-control  @error('language_used') is-invalid @enderror" id="languageInput" placeholder="My Project Name" value="{{ old('language_used', $project->language_used) }}" name="language_used">
-                    <label for="languageInout">Enter the programming language used</label>
-                    <div id="validationServer05Feedback" class="invalid-feedback">
-                        @error('language_used')
-                            {{$message}}
-                        @enderror
-                    </div>
+                    <select name="type_id" id="typeSelect" class="form-select">
+                        @foreach ($types as $type)
+                        <option value="{{ $type->id }}"
+                            {{ old('type_id', $project->type_id) ==  $type->id ? 'selected' : '' }}> {{ $type->name }}
+                        </option>
+                    @endforeach
+                    </select>
+                    <label for="typeSelect">Project Type</label>
                 </div>
             </div>
         </div>

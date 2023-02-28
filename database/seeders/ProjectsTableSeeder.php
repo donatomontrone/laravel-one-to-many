@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
@@ -34,7 +35,7 @@ class ProjectsTableSeeder extends Seeder
             $newProject->publication_date = $faker->date('Y-m-d', 'now');
             $newProject->preview = $faker->unique()->imageUrl();
             $newProject->complexity = $faker->numberBetween(1, 5);
-            $newProject->language_used = $faker->randomElement(['HTML', 'HTML/CSS', 'JS', 'Vue.Js', 'Php', 'Laravel']);
+            $newProject->type_id = Type::inRandomOrder()->first()->id;
             $newProject->github_url = $faker->url();
             $newProject->save();
         }

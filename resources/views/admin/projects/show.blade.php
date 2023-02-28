@@ -17,7 +17,9 @@
         <div class="col-md-6 col-sm-12">
             <div class="card text-center">
                 <div class="card-header d-flex justify-content-between">
-                    <p class="d-inline m-0">{{$project->language_used}}</p>
+                    <p class="d-inline m-0">
+                        <span class="badge rounded-pill" style="background-color: {{$project->type->color}}">{{$project->type->name}}</span>
+                    </p>
                     <p class="d-inline-block m-0">
                         @for ($i = 0; $i < 5; $i++)
                         <span class="fa-star {{($i < $project->complexity) ? 'fas' : 'far'}}"></span>
