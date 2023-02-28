@@ -16,9 +16,9 @@ class TypesTableSeeder extends Seeder
     public function run()
     {
         $types = [
-            ['name' => 'Front-End Web Developer', 'color' => '#1C4B29'],
-            ['name' => 'Back-End Web Developer', 'color' => '#D95757'],
-            ['name' => 'Full Stack Web Developer', 'color' => '#2473E7']
+            ['name' => 'Front-End', 'color' => '#1C4B29'],
+            ['name' => 'Back-End', 'color' => '#D95757'],
+            ['name' => 'Full Stack', 'color' => '#2473E7']
         ];
 
         foreach ($types as $type) {

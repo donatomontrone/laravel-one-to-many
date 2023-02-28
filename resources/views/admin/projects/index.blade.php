@@ -37,7 +37,7 @@
                   <th scope="col">ID <a href="{{route('admin.projects.index', 'sort=id')}}" class="text-white"><i class="fa-solid fa-sort-down"></i></a></th>
                   <th scope="col" >Name <a href="{{route('admin.projects.index', 'sort=name')}}" class="text-white d-inline-block"><i class="fa-solid fa-sort-down"></i></a></th>
                   <th scope="col">Publication Date <a href="{{route('admin.projects.index', 'sort=publication_date')}}" class="text-white d-inline-block"><i class="fa-solid fa-sort-down"></i></a></th>
-                  <th scope="col">Complexity <a href="{{route('admin.projects.index', 'sort=complexity')}}" class="text-white d-inline-block"><i class="fa-solid fa-sort-down"></i></a></th>
+                  <th scope="col">Difficulty <a href="{{route('admin.projects.index', 'sort=difficulty_id')}}" class="text-white d-inline-block"><i class="fa-solid fa-sort-down"></i></a></th>
                   <th scope="col">Type <a href="{{route('admin.projects.index', 'sort=type_id')}}" class="text-white d-inline-block"><i class="fa-solid fa-sort-down"></i></a></th>
                   <th scope="col" class="text-center">Actions</th>
                 </tr>
@@ -49,9 +49,9 @@
                   <td>{{$project->name}}</td>
                   <td>{{$project->publication_date}}</td>
                   <td class="text-secondary">
-                    @for ($i = 0; $i < 5; $i++)
-                    <span class="fa-star {{($i < $project->complexity) ? 'fas' : 'far'}}"></span>
-                    @endfor
+                    <div class="progress" role="progressbar" aria-label="Default striped example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                      <div class="progress-bar progress-bar-striped @if ($project->difficulty->percentage === '60%' || $project->difficulty->percentage === '80%') bg-warning  @elseif  ($project->difficulty->percentage === '100%') bg-danger  @else bg-success  @endif" style="width: {{$project->difficulty->percentage}}"></div>
+                    </div>
                   </td>
                   <td>{{$project->type->name}}</td>
                   <td class="text-center">

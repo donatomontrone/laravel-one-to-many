@@ -22,7 +22,7 @@
                     </p>
                     <p class="d-inline-block m-0">
                         @for ($i = 0; $i < 5; $i++)
-                        <span class="fa-star {{($i < $project->complexity) ? 'fas' : 'far'}}"></span>
+                        <span class="fa-star {{($i < $project->difficulty->id) ? 'fas' : 'far'}}"></span>
                         @endfor</p>
                 </div>
                 <div class="card-body">

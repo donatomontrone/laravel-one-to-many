@@ -17,10 +17,10 @@ class ProjectController extends Controller
         'name' => 'required|min:3|max:100|string|unique:projects',
         'publication_date' => 'required',
         'preview' => 'required|image|min:1|max:300',
-        'complexity' => 'required|min:1|max:5',
         'github_url' => 'required|url|min:10',
         'slug' => 'unique',
-        'type_id' => 'required|exists:types,id'
+        'type_id' => 'required|exists:types,id',
+        'difficulty_id' => 'required|exists:difficulties,id'
     ];
 
     protected $messages = [
