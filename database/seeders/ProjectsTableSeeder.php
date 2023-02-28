@@ -34,8 +34,8 @@ class ProjectsTableSeeder extends Seeder
             $newProject->slug = Str::slug($newProject->name);
             $newProject->publication_date = $faker->date('Y-m-d', 'now');
             $newProject->preview = $faker->unique()->imageUrl();
-            $newProject->complexity = $faker->numberBetween(1, 5);
             $newProject->type_id = Type::inRandomOrder()->first()->id;
+            $newProject->difficulty_id = Type::inRandomOrder()->first()->id;
             $newProject->github_url = $faker->url();
             $newProject->save();
         }
