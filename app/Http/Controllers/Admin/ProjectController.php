@@ -16,7 +16,7 @@ class ProjectController extends Controller
     protected $rules = [
         'name' => 'required|min:3|max:100|string|unique:projects',
         'publication_date' => 'required',
-        'preview' => 'required|image|min:1|max:300',
+        'preview' => 'required|image|max:300',
         'github_url' => 'required|url|min:10',
         'slug' => 'unique',
         'type_id' => 'required|exists:types,id',
@@ -31,7 +31,6 @@ class ProjectController extends Controller
         'publication_date.required' => 'Inserisci la data di pubblicazione del progetto.',
         'preview.required' => 'Inserisci l\'url della copertina.',
         'preview.image' => 'Carica una immagine o inserisci il suo URL.',
-        'preview.min' => 'Url troppo corto o non valido.',
         'preview.max' => 'Url troppo lungo o non valido.',
         'complexity.required' => 'Inserisci il livello di complessità.',
         'complexity.min' => 'Il numero deve essere compreso tra 1 e 5',

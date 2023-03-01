@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Difficulty;
 use App\Models\Project;
 use App\Models\Type;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -28,14 +29,14 @@ class ProjectsTableSeeder extends Seeder
         // $table->text('github_url');
         // $table->timestamps();
 
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 200; $i++) {
             $newProject = new Project();
-            $newProject->name = $faker->sentence(3);
+            $newProject->name = $faker->sentence(4);
             $newProject->slug = Str::slug($newProject->name);
             $newProject->publication_date = $faker->date('Y-m-d', 'now');
             $newProject->preview = $faker->unique()->imageUrl();
             $newProject->type_id = Type::inRandomOrder()->first()->id;
-            $newProject->difficulty_id = Type::inRandomOrder()->first()->id;
+            $newProject->difficulty_id = Difficulty::inRandomOrder()->first()->id;
             $newProject->github_url = $faker->url();
             $newProject->save();
         }
